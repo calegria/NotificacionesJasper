@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteResultado" pageWidth="612" pageHeight="792" columnWidth="584" leftMargin="14" rightMargin="14" topMargin="28" bottomMargin="28" uuid="e8e9e507-94ba-4683-aaec-744e10b76a29">
+	<property name="ireport.zoom" value="1.1000000000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="X_IMGLIBERTADOR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA["el-libertador-logo.png"]]></parameterDescription>
+		<defaultValueExpression><![CDATA["J23Libertador.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="X_INMOBILIARIA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_DIRECCION" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_CANON" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_AGENCIA" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_FECHARESULTADO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_ADMON" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="X_FECHA" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="dato1" class="java.lang.String"/>
+	<field name="dato2" class="java.lang.String"/>
+	<field name="dato3" class="java.lang.String"/>
+	<field name="dato4" class="java.lang.String"/>
+	<field name="dato5" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle" isUsingCache="false">
+				<reportElement x="0" y="0" width="584" height="27" uuid="7b46d3d1-f050-46f8-b6a4-c077bf416691"/>
+				<imageExpression><![CDATA[$P{X_IMGLIBERTADOR}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="54" width="584" height="20" uuid="1a11d07b-f22f-4acb-94f5-c22941f14bdd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resultado de la solicitud]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="120">
+			<staticText>
+				<reportElement x="0" y="0" width="125" height="20" uuid="cbfbcde2-6e42-46c7-b1c5-13c698cb71a7"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Inmobiliaria:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="125" height="20" uuid="48d11767-ed69-46d8-8eec-77d4ee40fe35"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección del inmueble:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="125" height="20" uuid="f3664d39-740b-4ac5-bbce-a12c38238735"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Canon:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="0" width="103" height="20" uuid="c0ed0d1c-5eee-41f3-80dd-6d11b86d264e"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="20" width="103" height="20" uuid="d291d503-0182-41c8-a1dd-a5c736721467"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de resultado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="40" width="103" height="20" uuid="1e97a3a1-ef93-4270-983f-6c7829cf5a3b"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Administración:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="0" width="223" height="20" uuid="caa18006-8da9-4df2-b646-e848a5210b4a"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_INMOBILIARIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="20" width="223" height="20" uuid="21afd4dc-8207-4504-ba13-b9ff6ca30187"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="40" width="223" height="20" uuid="392c7d7f-d67d-4988-8bda-5ed1562cef15"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_CANON}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="119" height="20" uuid="7179ba2a-df65-426c-a294-46f6c3c01ba9"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_AGENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="20" width="119" height="20" uuid="c3f356aa-565e-454a-989e-24d8e46fb115"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_FECHARESULTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="40" width="119" height="20" uuid="e6ec2d01-74ae-49f9-a678-866f3f0043f6"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{X_ADMON}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="348" height="20" uuid="f30d72bd-d678-4305-9bed-b4d0ed27f1c9"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción del resultado]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="20" uuid="2f700892-2170-49fa-ab7d-199679304b32"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="50" height="20" uuid="b31f04fb-3ed3-4494-bd77-2e4893076d7d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitud]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="150" height="20" uuid="7a3e2cac-9ee4-4576-9f51-f46af473c425"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="70" height="20" uuid="6eec8d94-23c4-4043-b706-b25b82e5b48a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="234" height="20" uuid="6f0f029d-6240-493f-a593-914c8907e5a5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resultado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="20" uuid="4c01b964-eb02-4684-80d4-6067532e64ef"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dato1}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToTallestObject" x="80" y="0" width="70" height="20" uuid="ffe4178a-6eb1-48e2-b3e0-472a677e0ba0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dato2}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToTallestObject" x="150" y="0" width="150" height="20" uuid="210808b0-d2f3-44af-bafe-3e6b71315d05"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dato3}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToTallestObject" x="300" y="0" width="50" height="20" uuid="141b690a-9687-4326-a871-9c58c0d8916e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dato4}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="350" y="0" width="234" height="20" uuid="562b75f2-dfc7-4b35-ac59-5f8beb6a403d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dato5}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="157">
+			<staticText>
+				<reportElement x="0" y="137" width="584" height="20" uuid="89505e13-3447-4649-9c68-a01ed752c6f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Todos los derechos reservados]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="117" width="584" height="20" uuid="df6868ef-2f4e-4bb3-9eb8-3d5c91e74fb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha de Consulta: "+ $P{X_FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="584" height="66" uuid="2ade11cf-7b10-4f95-a8f6-55cc1430cffb"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style isBold=\"true\">ALERTA.  </style>"+
+"La suplantación al firmar los contratos de arrendamiento se ha convertido en una diaria amenaza.  Es de total responsabilidad del arrendador verificar nombres, cédulas y la capacidad de contratación de los futuros arrendatarios."+"\n"+
+"<style isBold=\"true\">ATREVASE A SOSPECHAR</style>"+" y tome las medidas necesarias para evitar la suplantación y falsedad al suscribir los contratos de arrendamiento, en caso de siniestro <style isBold=\"true\">la Aseguradora se abstendrá de indemnizar.</style>"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

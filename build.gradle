@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.segurosbolivar.libertador.notificaciones'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	
+	/*STS4 compatibilidad para proyectos Spring:
+		id 'org.springframework.boot' version '2.3.4.RELEASE'
+		id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+		Solución Error: java.lang.NoClassDefFoundError: org/junit/platform/commons/util/ClassNamePatternFilterUtils
+		
+	*/		
+	implementation group: 'org.junit.platform', name: 'junit-platform-commons', version: '1.7.1'
+	implementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.1'
+	
+	/*Librerias para trabjar con jasper reports		
+	*/
+	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.16.0'
+	implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
+	
+	/*UTF 8
+	*/
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+}
+
+test {
+	useJUnitPlatform()
+}

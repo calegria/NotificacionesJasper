@@ -1,0 +1,21 @@
+server:
+  port: ${PORT_CARRITO:8086}
+  address: 0.0.0.0
+  servlet:
+    context-path: /bindato
+
+jasper:
+  path_test1: src/main/resources/reports/demo_jasper_paises.jasper
+  pathJasperSolicitud: src/main/resources/reports/J23ReporteResultados.jasper
+  pathResult: src/main/resources/reports
+  parametros:
+    inmobiliria: X_INMOBILIARIA
+    agencia: X_AGENCIA
+    direccion: X_DIRECCION
+    fechaResultado: X_FECHARESULTADO
+    canon: X_CANON
+    admon: X_ADMON
+    fecha: X_FECHA
+
+info:
+  status: UP
