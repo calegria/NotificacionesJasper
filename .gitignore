@@ -7,12 +7,10 @@ tomcat
 #
 # Default excludes
 #
-bin/*
-
 
 # Binaries
+bin/
 *.7z
-*.class
 *.dmg
 *.gz
 *.iso
@@ -58,6 +56,6 @@ release.properties
 pom.xml.releaseBackup
 pom.xml.tag
 Solicitud.pdf
-bin/main/com/segurosbolivar/libertador/notificaciones/controller/GenerarPdfController.class
-*.class
-*.class
+*.lock
+*.properties
+*.pdf
