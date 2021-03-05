@@ -18,8 +18,7 @@ public class GenerarPdfController {
 	
 	@GetMapping("${server.url-pdf}")
 	public ResponseDto getString(@Validated @RequestBody RequestDto request) {
-	
-		return ResponseDto.builder().bindatoPDF(serviceJasper.genearReporte(request) ).build();
+		return ResponseDto.builder().bindatoPDF( serviceJasper.genearReporte(request) ).build();
 	}
 
 }

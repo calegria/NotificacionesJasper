@@ -2,9 +2,7 @@ package com.segurosbolivar.libertador.notificaciones.service.impl;
 
 import java.io.File;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +14,10 @@ import com.segurosbolivar.libertador.notificaciones.dto.ParametrosSolicitud;
 import com.segurosbolivar.libertador.notificaciones.dto.RequestDto;
 import com.segurosbolivar.libertador.notificaciones.dto.ResultadoSolicitud;
 import com.segurosbolivar.libertador.notificaciones.jasper.SolicitudJasper;
-import com.segurosbolivar.libertador.notificaciones.jasper.dto.SolicitudParametros;
 import com.segurosbolivar.libertador.notificaciones.service.ServiceJasperInterface;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
@@ -33,6 +31,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 
 @Data
 @Slf4j
+@NoArgsConstructor
 @Service
 public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	
@@ -65,17 +64,18 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	@Value ("${jasper.resultado.dato5}")
 	String dato5;
 	
-	SolicitudJasper dataSource = new SolicitudJasper();
-	SolicitudParametros parametros;
+	SolicitudJasper dataSource;
 	String  pdfBindato;
-	Map<String, Object> parametrosJasper = new HashMap<String,Object>();
+	Map<String, Object> parametrosJasper;
 	
 	/*
 	 * Genera reporte bindato/pdf desde plantilla jasper
 	 * */
 	@Override
 	public String genearReporte(RequestDto request) {
-		log.info("Path jasper: "+pathJasper);	
+
+		 dataSource = new SolicitudJasper();
+		 parametrosJasper = new HashMap<>();
 		
 		try {
 		
@@ -117,36 +117,15 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 		return parametrosJasper;
 	}
 	/*
-	 * Simula un resultado
+	 * Setea los resultados
 	 * */
 	@Override
 	public void addResultdoJasper(List<ResultadoSolicitud> resultados) {
-		
-		ResultadoSolicitud resultad = new ResultadoSolicitud();
 		
 		for (ResultadoSolicitud resultado: resultados) {
 			this.dataSource.addResultado(resultado);
 		}
 		
-	}
-	/*
-	 * Simula los parametros de la solicitud
-	 * */
-	@Override
-	public SolicitudParametros getParametros() {
-		SimpleDateFormat fecha = new SimpleDateFormat("yyyy/MM/dd");
-		String fechaResultado = fecha.format(new Date());
-
-		parametros = new SolicitudParametros();
-
-		parametros.setAgencia("10044");
-		parametros.setInmobiliaria("CONTACTO INMOBILIARIO CIA Y LTDA");
-		parametros.setCanon("$500.000");
-		parametros.setFechaResultado(fechaResultado);
-		parametros.setDireccion("DG 28C 42C 75");
-		parametros.setAdministracion("$0");
-
-		return parametros;
 	}
 	/*
 	 * Exportar PDF
