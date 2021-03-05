@@ -51,6 +51,17 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	@Value("${jasper.parametros.fecha}")
 	private String fecha;
 	
+	@Value ("${jasper.resultado.dato1}")
+	String dato1;
+	@Value ("${jasper.resultado.dato2}")
+	String dato2;
+	@Value ("${jasper.resultado.dato3}")
+	String dato3;
+	@Value ("${jasper.resultado.dato4}")
+	String dato4;
+	@Value ("${jasper.resultado.dato5}")
+	String dato5;
+	
 	SolicitudJasper dataSource = new SolicitudJasper();
 	SolicitudParametros parametros;
 	String  pdfBindato;
@@ -66,16 +77,16 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 		try {
 		
 			File resource = Paths.get(pathJasper).toFile();
-			log.info("Load <file>.jasper: "+resource.getAbsolutePath());
-			
 			JasperReport report = (JasperReport) JRLoader.loadObject(resource);
-			addResultdoJasper();
+			
+			this.dataSource.inicilizarParametrosJasper(dato1, dato2, dato3, dato4, dato5);
+			this.addResultdoJasper();
+			
             JasperPrint jprint = JasperFillManager.fillReport(report, this.setParametros(), this.dataSource);
             this.exportarPDF(jprint);
             
             byte[] pdfBytes =  Base64.getEncoder().encode(JasperExportManager.exportReportToPdf(jprint));
             pdfBindato = new String(pdfBytes);
-            log.info("PDF bytes: "+pdfBindato);
             
 		} catch (JRException  e) {
 			log.info("JRException Error: "+e.getMessage());
@@ -88,8 +99,6 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	 * */
 	@Override
 	public Map<String, Object> setParametros() {
-		log.info("inmobiliaria parametro: "+inmobiliria);
-		log.info("inmobiliaria valor: "+this.getParametros().getInmobiliaria());
 		
 		parametrosJasper.put(inmobiliria, this.getParametros().getInmobiliaria());
 		parametrosJasper.put(agencia,this.getParametros().getAgencia());
@@ -158,7 +167,6 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
         try {
 			exporter.exportReport();
 		} catch (JRException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

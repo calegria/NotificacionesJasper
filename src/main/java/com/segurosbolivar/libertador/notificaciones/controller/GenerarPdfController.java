@@ -13,7 +13,7 @@ public class GenerarPdfController {
 	@Autowired
 	ServiceJasperInterfaceImpl serviceJasper;
 	
-	@GetMapping("${server.url}")
+	@GetMapping("${server.url-pdf}")
 	public ResponseDto getString() {
 		return ResponseDto.builder().bindatoPDF(serviceJasper.genearReporte() ).build();
 	}
