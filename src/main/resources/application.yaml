@@ -4,6 +4,7 @@ spring:
 
 server:
   url-pdf: /pdf/bindato
+  url_body: /pdf/body/bindato
   port: ${PORT_CARRITO:8086}
   address: 0.0.0.0
   servlet:

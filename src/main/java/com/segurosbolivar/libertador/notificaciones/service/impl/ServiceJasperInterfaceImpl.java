@@ -6,13 +6,16 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.segurosbolivar.libertador.notificaciones.dto.ParametrosSolicitud;
+import com.segurosbolivar.libertador.notificaciones.dto.RequestDto;
+import com.segurosbolivar.libertador.notificaciones.dto.ResultadoSolicitud;
 import com.segurosbolivar.libertador.notificaciones.jasper.SolicitudJasper;
-import com.segurosbolivar.libertador.notificaciones.jasper.dto.ResultadoSolicitud;
 import com.segurosbolivar.libertador.notificaciones.jasper.dto.SolicitudParametros;
 import com.segurosbolivar.libertador.notificaciones.service.ServiceJasperInterface;
 
@@ -71,7 +74,7 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	 * Genera reporte bindato/pdf desde plantilla jasper
 	 * */
 	@Override
-	public String genearReporte() {
+	public String genearReporte(RequestDto request) {
 		log.info("Path jasper: "+pathJasper);	
 		
 		try {
@@ -80,9 +83,12 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 			JasperReport report = (JasperReport) JRLoader.loadObject(resource);
 			
 			this.dataSource.inicilizarParametrosJasper(dato1, dato2, dato3, dato4, dato5);
-			this.addResultdoJasper();
+			this.addResultdoJasper(request.getSolicitudToPdf().getResultadoSolicitud());
 			
-            JasperPrint jprint = JasperFillManager.fillReport(report, this.setParametros(), this.dataSource);
+            JasperPrint jprint = JasperFillManager.fillReport(
+            		report, this.setParametros(request.getSolicitudToPdf().getParametrosSolicitud()),
+            		this.dataSource);
+            
             this.exportarPDF(jprint);
             
             byte[] pdfBytes =  Base64.getEncoder().encode(JasperExportManager.exportReportToPdf(jprint));
@@ -98,15 +104,15 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	 * Setea Parametros del Jasper
 	 * */
 	@Override
-	public Map<String, Object> setParametros() {
+	public Map<String, Object> setParametros(ParametrosSolicitud parametros) {
 		
-		parametrosJasper.put(inmobiliria, this.getParametros().getInmobiliaria());
-		parametrosJasper.put(agencia,this.getParametros().getAgencia());
-		parametrosJasper.put(direccion,this.getParametros().getDireccion());
-		parametrosJasper.put(fechaResultado,this.getParametros().getFechaResultado() );
-		parametrosJasper.put(canon,this.getParametros().getCanon());
-		parametrosJasper.put(admon,this.getParametros().getAdministracion());
-		parametrosJasper.put(fecha,this.getParametros().getFechaResultado());
+		parametrosJasper.put(inmobiliria, parametros.getInmobiliria());
+		parametrosJasper.put(agencia,parametros.getAgencia());
+		parametrosJasper.put(direccion,parametros.getDireccion());
+		parametrosJasper.put(fechaResultado,parametros.getFechaResultado() );
+		parametrosJasper.put(canon,parametros.getCanon());
+		parametrosJasper.put(admon,parametros.getAdmon());
+		parametrosJasper.put(fecha,parametros.getFecha());
 		
 		return parametrosJasper;
 	}
@@ -114,27 +120,13 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	 * Simula un resultado
 	 * */
 	@Override
-	public void addResultdoJasper() {
-		ResultadoSolicitud resultado = new ResultadoSolicitud();
+	public void addResultdoJasper(List<ResultadoSolicitud> resultados) {
 		
-		// Inquilino
-		resultado.setIdentificacion("1.063.807.515");
-		resultado.setNombre("Carlos Alegria");
-		resultado.setTipo("INQUILINO");
-		resultado.setSolicitud("674528");
-		resultado.setResultado("RECHAZADO.\r\n" + "PRESENTE DEUDOR ADICIONAL CON INGRESOS\r\n"
-				+ "DEMOSTRADOS POR EL DOBLE DEL CANON DE\r\n" + "ARRENDAMIENTO.\r\n" + "O LMI DE 6 MESES.");
-		this.dataSource.addResultado(resultado);
+		ResultadoSolicitud resultad = new ResultadoSolicitud();
 		
-		//Deudor Solidario
-		resultado = new ResultadoSolicitud();
-		resultado.setIdentificacion("1.003.807.667");
-		resultado.setNombre("Filomeno Morris");
-		resultado.setTipo("DEUDOR SOLIDARIO");
-		resultado.setSolicitud("674529");
-		resultado.setResultado("RECHAZADO.\r\n" + "PRESENTE DEUDOR ADICIONAL CON INGRESOS\r\n"
-				+ "MENORES AL DOBLE DEL CANON DE\r\n" + "ARRENDAMIENTO.\r\n" + "O LMI DE 6 MESES.");
-		this.dataSource.addResultado(resultado);
+		for (ResultadoSolicitud resultado: resultados) {
+			this.dataSource.addResultado(resultado);
+		}
 		
 	}
 	/*

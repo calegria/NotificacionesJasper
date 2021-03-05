@@ -6,17 +6,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.segurosbolivar.libertador.notificaciones.jasper.dto.ResultadoSolicitud;
+import com.segurosbolivar.libertador.notificaciones.dto.ResultadoSolicitud;
 
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 
 @Data
 @Component
-@Slf4j
 public class SolicitudJasper implements JRDataSource{
 	
 	private List<ResultadoSolicitud> resultados = new ArrayList<ResultadoSolicitud>();
