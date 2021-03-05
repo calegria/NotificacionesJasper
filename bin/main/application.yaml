@@ -1,9 +1,9 @@
 spring:
   application:
-    name: notificaciones-jasper
+    name: NotificacionesJasper
 
 server:
-  url: /pdf/bindato
+  url-pdf: /pdf/bindato
   port: ${PORT_CARRITO:8086}
   address: 0.0.0.0
   servlet:
@@ -42,3 +42,9 @@ jasper:
     canon: X_CANON
     admon: X_ADMON
     fecha: X_FECHA
+  resultado:
+    dato1: dato1
+    dato2: dato2
+    dato3: dato3
+    dato4: dato4
+    dato5: dato5

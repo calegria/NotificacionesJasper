@@ -58,3 +58,5 @@ release.properties
 pom.xml.releaseBackup
 pom.xml.tag
 Solicitud.pdf
+bin/main/com/segurosbolivar/libertador/notificaciones/controller/GenerarPdfController.class
+*.class
