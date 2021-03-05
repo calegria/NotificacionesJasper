@@ -34,15 +34,10 @@ class GenerarPdfControllerTest {
 
 	@Test
 	void GenerarPdfController_test1() {
-		try {
-			
+		
 			when(serviceJasper.genearReporte()).thenReturn(bindatoPDF);
 			ResponseDto response = generarPdfController.getString();
 			Assertions.assertEquals(bindatoPDF, response.getBindatoPDF());
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 	}
 

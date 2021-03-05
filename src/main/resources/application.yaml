@@ -1,9 +1,35 @@
+spring:
+  application:
+    name: notificaciones-jasper
+
 server:
+  url: /pdf/bindato
   port: ${PORT_CARRITO:8086}
   address: 0.0.0.0
   servlet:
-    context-path: /bindato
+    context-path: /solicitud/resultado
 
+info:
+  status: UP
+
+management:
+  endpoints:
+    web:
+      base-path:
+      
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        
+BolivarException:
+  codigo: ETBR01
+  controller:
+    mensaje: Error en generación de binDato
+    errores:
+      error1: Erro interno en Jasper. Generación de PDF
+      
 jasper:
   path_test1: src/main/resources/reports/demo_jasper_paises.jasper
   pathJasperSolicitud: src/main/resources/reports/J23ReporteResultados.jasper
@@ -16,6 +42,3 @@ jasper:
     canon: X_CANON
     admon: X_ADMON
     fecha: X_FECHA
-
-info:
-  status: UP
