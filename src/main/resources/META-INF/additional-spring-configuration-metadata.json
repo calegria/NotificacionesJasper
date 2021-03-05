@@ -1,0 +1,82 @@
+{"properties": [
+  {
+    "name": "info.status",
+    "type": "java.lang.String",
+    "description": "A description for 'info.status'"
+  },
+  {
+    "name": "server.url",
+    "type": "java.lang.String",
+    "description": "A description for 'server.url'"
+  },
+  {
+    "name": "management.endpoints.web.base-path",
+    "type": "java.lang.String",
+    "description": "A description for 'management.endpoints.web.base-path'"
+  },
+  {
+    "name": "BolivarException.codigo",
+    "type": "java.lang.String",
+    "description": "A description for 'BolivarException.codigo'"
+  },
+  {
+    "name": "BolivarException.controller.mensaje",
+    "type": "java.lang.String",
+    "description": "A description for 'BolivarException.controller.mensaje'"
+  },
+  {
+    "name": "BolivarException.controller.errores.error1",
+    "type": "java.lang.String",
+    "description": "A description for 'BolivarException.controller.errores.error1'"
+  },
+  {
+    "name": "jasper.path_test1",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.path_test1'"
+  },
+  {
+    "name": "jasper.pathJasperSolicitud",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.pathJasperSolicitud'"
+  },
+  {
+    "name": "jasper.pathResult",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.pathResult'"
+  },
+  {
+    "name": "jasper.parametros.inmobiliria",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.inmobiliria'"
+  },
+  {
+    "name": "jasper.parametros.agencia",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.agencia'"
+  },
+  {
+    "name": "jasper.parametros.direccion",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.direccion'"
+  },
+  {
+    "name": "jasper.parametros.fechaResultado",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.fechaResultado'"
+  },
+  {
+    "name": "jasper.parametros.canon",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.canon'"
+  },
+  {
+    "name": "jasper.parametros.admon",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.admon'"
+  },
+  {
+    "name": "jasper.parametros.fecha",
+    "type": "java.lang.String",
+    "description": "A description for 'jasper.parametros.fecha'"
+  }
+]}
