@@ -2,13 +2,11 @@ spring:
   application:
     name: NotificacionesJasper
 
-url-pdf: /pdf/bindato
-
 server:
   port: ${PORT_CARRITO:8086}
   address: 0.0.0.0
   servlet:
-    context-path: /solicitud/resultado
+    context-path: /solicitud
 
 info:
   status: UP
@@ -32,6 +30,7 @@ BolivarException:
       error1: Erro interno en Jasper. Generación de PDF
       
 jasper:
+  urlPdf: resultado/pdf/bindato
   path_test1: src/main/resources/reports/demo_jasper_paises.jasper
   pathJasperSolicitud: src/main/resources/reports/J23ReporteResultados.jasper
   pathResult: src/main/resources/reports

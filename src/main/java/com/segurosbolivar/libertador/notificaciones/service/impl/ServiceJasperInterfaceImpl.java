@@ -72,7 +72,7 @@ public class ServiceJasperInterfaceImpl implements ServiceJasperInterface {
 	 * Genera reporte bindato/pdf desde plantilla jasper
 	 * */
 	@Override
-	public String genearReporte(RequestDto request) {
+	public String generarReporte(RequestDto request) {
 
 		 dataSource = new SolicitudJasper();
 		 parametrosJasper = new HashMap<>();

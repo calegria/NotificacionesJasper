@@ -12,7 +12,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 public interface ServiceJasperInterface { 
 	
-	public String genearReporte(RequestDto request);
+	public String generarReporte(RequestDto request);
 	
 	public Map<String, Object> setParametros(ParametrosSolicitud parametros);
 	
