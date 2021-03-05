@@ -20,7 +20,7 @@ import com.segurosbolivar.libertador.notificaciones.service.impl.ServiceJasperIn
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
 @PropertySource
-(value = {"classpath:test_1.yaml"})
+(value = {"classpath:test.yaml"})
 class GenerarPdfControllerTest {
 	
 	@InjectMocks
