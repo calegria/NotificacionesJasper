@@ -2,9 +2,9 @@ spring:
   application:
     name: NotificacionesJasper
 
+url-pdf: /pdf/bindato
+
 server:
-  url-pdf: /pdf/bindato
-  url_body: /pdf/body/bindato
   port: ${PORT_CARRITO:8086}
   address: 0.0.0.0
   servlet:
@@ -35,6 +35,12 @@ jasper:
   path_test1: src/main/resources/reports/demo_jasper_paises.jasper
   pathJasperSolicitud: src/main/resources/reports/J23ReporteResultados.jasper
   pathResult: src/main/resources/reports
+  resultado:
+    dato1: dato1
+    dato2: dato2
+    dato3: dato3
+    dato4: dato4
+    dato5: dato5
   parametros:
     inmobiliria: X_INMOBILIARIA
     agencia: X_AGENCIA
@@ -43,9 +49,3 @@ jasper:
     canon: X_CANON
     admon: X_ADMON
     fecha: X_FECHA
-  resultado:
-    dato1: dato1
-    dato2: dato2
-    dato3: dato3
-    dato4: dato4
-    dato5: dato5

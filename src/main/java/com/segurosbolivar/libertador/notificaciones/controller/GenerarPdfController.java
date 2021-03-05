@@ -16,7 +16,7 @@ public class GenerarPdfController {
 	@Autowired
 	ServiceJasperInterfaceImpl serviceJasper;
 	
-	@GetMapping("${server.url-pdf}")
+	@GetMapping("${url-pdf}")
 	public ResponseDto getString(@Validated @RequestBody RequestDto request) {
 		return ResponseDto.builder().bindatoPDF( serviceJasper.genearReporte(request) ).build();
 	}
