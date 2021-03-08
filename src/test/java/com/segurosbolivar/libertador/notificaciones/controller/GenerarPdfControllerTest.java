@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 
 import com.segurosbolivar.libertador.notificaciones.dto.ResponseDto;
-import com.segurosbolivar.libertador.notificaciones.service.impl.ServiceJasperInterfaceImpl;
+import com.segurosbolivar.libertador.notificaciones.service.ServiceJasperInterfaceImpl;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)

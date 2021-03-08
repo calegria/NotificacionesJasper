@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.segurosbolivar.libertador.notificaciones.dto.RequestDto;
 import com.segurosbolivar.libertador.notificaciones.dto.ResponseDto;
-import com.segurosbolivar.libertador.notificaciones.service.impl.ServiceJasperInterfaceImpl;
+import com.segurosbolivar.libertador.notificaciones.service.ServiceJasperInterfaceImpl;
 
 @RestController
 public class GenerarPdfController {
