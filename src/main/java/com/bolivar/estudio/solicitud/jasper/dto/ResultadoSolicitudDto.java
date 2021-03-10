@@ -1,10 +1,10 @@
 
-package com.segurosbolivar.libertador.notificaciones.dto;
+package com.bolivar.estudio.solicitud.jasper.dto;
 
 import lombok.Data;
 
 @Data
-public class ResultadoSolicitud{
+public class ResultadoSolicitudDto{
     public String tipo;
     public String identificacion;
     public String nombre;

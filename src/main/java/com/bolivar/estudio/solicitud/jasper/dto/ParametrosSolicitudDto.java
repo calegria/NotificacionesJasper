@@ -1,5 +1,5 @@
 
-package com.segurosbolivar.libertador.notificaciones.dto;
+package com.bolivar.estudio.solicitud.jasper.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParametrosSolicitud{
+public class ParametrosSolicitudDto{
     public String inmobiliria;
     public String agencia;
     public String direccion;

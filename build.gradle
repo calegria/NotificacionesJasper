@@ -1,21 +1,38 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.3'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'jacoco'	
 }
 
-group = 'com.segurosbolivar.libertador.notificaciones'
+group = 'com.bolivar.estudio.solicitud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+	
+	mavenLocal {
+		url "https://segurosbolivarartifactory.jfrog.io/artifactory/commons-gradle-bolivar-core-error-handling-starter-local/"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+	maven {
+		url "https://segurosbolivarartifactory.jfrog.io/artifactory/jcenter"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+}
+
 
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-}
-
-repositories {
-	mavenCentral()
 }
 
 dependencies {
@@ -26,25 +43,46 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	
+	/*Actuator
+	*/
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	/*STS4 compatibilidad para proyectos Spring:
 		id 'org.springframework.boot' version '2.3.4.RELEASE'
 		id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 		Solución Error: java.lang.NoClassDefFoundError: org/junit/platform/commons/util/ClassNamePatternFilterUtils
-		
 	*/		
 	implementation group: 'org.junit.platform', name: 'junit-platform-commons', version: '1.7.1'
 	implementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.1'
-	
 	/*Librerias para trabjar con jasper reports		
 	*/
 	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.16.0'
 	implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
-	
 	/*UTF 8
 	*/
 	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	/*GSON
+	*/
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+	/*BolivarException
+	*/
+	compile(group: 'com.bolivar.error.handling', name: 'bolivar-core-error-handling-starter', version: '1.0.0.RELEASE')
+	
 }
 
 test {
 	useJUnitPlatform()
 }
+
+jacoco {
+  toolVersion = '0.8.4'
+}
+
+jacocoTestReport {
+  reports {
+    html.enabled = true
+    xml.enabled = true
+    csv.enabled = true
+  }
+}
+test.finalizedBy jacocoTestReport

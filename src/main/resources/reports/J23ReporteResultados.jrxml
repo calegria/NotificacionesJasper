@@ -6,7 +6,7 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="X_IMGLIBERTADOR" class="java.lang.String" isForPrompting="false">
 		<parameterDescription><![CDATA["el-libertador-logo.png"]]></parameterDescription>
-		<defaultValueExpression><![CDATA["J23Libertador.png"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["src/main/resources/reports/J23Libertador.png"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="X_INMOBILIARIA" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="X_DIRECCION" class="java.lang.String" isForPrompting="false"/>

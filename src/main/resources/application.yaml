@@ -1,6 +1,6 @@
 spring:
   application:
-    name: NotificacionesJasper
+    name: resultado-estudio-pdf
 
 server:
   port: ${PORT_CARRITO:8086}
@@ -21,7 +21,8 @@ logging:
     org:
       hibernate:
         type: trace
-        
+
+#Inicio: Configuracion modulo Jasper/Pdf
 BolivarException:
   codigo: ETBR01
   controller:
@@ -30,8 +31,7 @@ BolivarException:
       error1: Erro interno en Jasper. Generación de PDF
       
 jasper:
-  urlPdf: resultado/pdf/bindato
-  path_test1: src/main/resources/reports/demo_jasper_paises.jasper
+  url: /api/v1/estudio/solicitud/pdf
   pathJasperSolicitud: src/main/resources/reports/J23ReporteResultados.jasper
   pathResult: src/main/resources/reports
   resultado:
@@ -48,3 +48,4 @@ jasper:
     canon: X_CANON
     admon: X_ADMON
     fecha: X_FECHA
+#Fin: Configuracion modulo Jasper/Pdf

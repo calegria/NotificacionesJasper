@@ -1,4 +1,4 @@
-package com.segurosbolivar.libertador.notificaciones.dto;
+package com.bolivar.estudio.solicitud.jasper.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestDto{
-    public SolicitudToPdf solicitudToPdf;
+    public SolicitudToPdfDto solicitudToPdf;
 }
